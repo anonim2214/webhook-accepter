@@ -3,7 +3,7 @@ import {webHooks} from "@/app/api/data";
 
 
 export async function GET(request: NextRequest) {
-    return NextResponse.json({ webHooks })
+    return NextResponse.json({ webHooks: webHooks.current })
 }
 
 
