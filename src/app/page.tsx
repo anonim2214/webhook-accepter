@@ -34,12 +34,14 @@ export default function Home() {
     }, []);
 
   return (
-    <div className="grid grid-cols-3" style={{ gridTemplateColumns: "200px minmax(0, 1fr)", rowGap: "20px" }}>
+    <div className="grid" style={{ gridTemplateColumns: "200px 200px minmax(0, 1fr)", rowGap: "20px" }}>
       <div className="text-center">Time</div>
+      <div className="text-center">From</div>
       <div className="text-center">Body</div>
         {values.map((e, index) => (
             <React.Fragment key={e.timestamp}>
                 <div className="text-center">{new Date(e.timestamp).toLocaleTimeString()}</div>
+                <div className="text-center">{e.title}</div>
                 <div className="relative">
                     <JsonView data={e.body} shouldExpandNode={allExpanded} style={darkStyles} />
                     <button onClick={() => {
