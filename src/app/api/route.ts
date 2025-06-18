@@ -1,8 +1,6 @@
 import {NextRequest, NextResponse} from "next/server";
+import {webHooks} from "@/app/api/data";
 
-
-export let webHooks: any[] = [
-];
 
 export async function GET(request: NextRequest) {
     return NextResponse.json({ webHooks })
@@ -10,6 +8,6 @@ export async function GET(request: NextRequest) {
 
 
 export async function DELETE(request: NextRequest) {
-    webHooks = webHooks.filter((_, index) => (index.toString() !== request.headers.get('index')))
+    webHooks.current = webHooks.current.filter((_, index) => (index.toString() !== request.headers.get('index')))
     return NextResponse.json({ }, { status: 200 })
 }
