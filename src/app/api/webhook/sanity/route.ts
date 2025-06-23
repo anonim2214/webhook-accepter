@@ -10,7 +10,7 @@ import {createKeysInLocalise} from "@/tasks/lokalise/createKeysInLocalise";
 export async function POST(request: NextRequest) {
     try {
         const paredJson = await request.json();
-        webHooks.current.push({ title: 'Sanity', timestamp: Date.now(), body: paredJson})
+        // webHooks.current.push({ title: 'Sanity', timestamp: Date.now(), body: paredJson})
         printMessage('Sanity webhook caught');
         const translatedFields: TranslatedField[] = [];
         if (isSanityDocument(paredJson)) {
