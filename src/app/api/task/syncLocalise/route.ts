@@ -17,12 +17,15 @@ export async function POST() {
         sanityResp.data!.forEach(e => {
             translatedFields.push(...parseSanityDocument(e))
         })
-        const createResp = await createKeysInLocalise(translatedFields);
-
-        if (createResp.ok) {
-            return NextResponse.json({ }, { status: 200 })
+        if (translatedFields.length > 0) {
+            const createResp = await createKeysInLocalise(translatedFields);
+            if (createResp.ok) {
+                return NextResponse.json({ }, { status: 200 })
+            } else {
+                return NextResponse.json({ status: createResp.status, error: createResp.error, text: 'Failed to create keys in localise'  }, { status: 500 })
+            }
         } else {
-            return NextResponse.json({ status: sanityResp.status, error: sanityResp.error, text: 'Failed to create keys in localise'  }, { status: 500 })
+            return NextResponse.json({ }, { status: 200 })
         }
     } else {
         return NextResponse.json({ status: sanityResp.status, error: sanityResp.error,
