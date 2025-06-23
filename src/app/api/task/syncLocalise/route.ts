@@ -1,10 +1,10 @@
 import {NextResponse} from "next/server";
 
 import {printMessage} from "@/utils/console";
-import {getAllDocumentsFromSanity} from "@/utils/getAllDocumentsFromSanity";
 import {TranslatedField} from "@/utils/types";
 import {parseSanityDocument} from "@/utils/parseSanityDocument";
-import {createKeysInLocalise} from "@/utils/createKeysInLocalise";
+import {getAllDocumentsFromSanity} from "@/tasks/sanity/getAllDocumentsFromSanity";
+import {createKeysInLocalise} from "@/tasks/lokalise/createKeysInLocalise";
 
 export async function POST() {
     printMessage('SyncLocalise called');

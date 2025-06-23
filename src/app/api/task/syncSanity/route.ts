@@ -6,10 +6,10 @@ import {SANITY_RELEASE_ID_PREFIX, SANITY_RELEASE_TITLE_PREFIX} from "@/utils/con
 import {archiveRelease} from "@/tasks/sanity/archiveRelease";
 import {removeRelease} from "@/tasks/sanity/removeRelease";
 import {createRelease} from "@/tasks/sanity/createRelease";
-import {getAllKeysFromLocalise} from "@/utils/getAllKeysFromLocalise";
-import {getAllDocumentsFromSanity} from "@/utils/getAllDocumentsFromSanity";
 import {parseRelease} from "@/utils/parseRelease";
 import {fillRelease} from "@/tasks/sanity/fillRelease";
+import {getAllDocumentsFromSanity} from "@/tasks/sanity/getAllDocumentsFromSanity";
+import {getAllKeysFromLocalise} from "@/tasks/lokalise/getAllKeysFromLocalise";
 
 export async function POST() {
     printMessage('SyncSanity called');
